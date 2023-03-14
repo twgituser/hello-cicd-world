@@ -25,5 +25,5 @@ workflows:
     jobs:
       - output_hello_world
       - load_hello_world:
-        requires: 
-          - output_hello_world
+          requires: 
+            - output_hello_world
