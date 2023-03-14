@@ -16,7 +16,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo << YOUR_NAME >>
+      - run: echo $YOUR_NAME
 workflows:
   # Name the workflow
   workflow_name_goes_here:
