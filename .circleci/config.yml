@@ -11,6 +11,18 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run: echo "hello world" > output.txt
+      - persist_to_workspace:
+        root: /tmp/dir
+        paths:
+          - output.txt
+  load_hello_world:
+    docker:
+      - image: circleci/node:13.8.0
+    steps:
+      - attact_workspace:
+        at: /tmp/dir
+      - run: cat output.txt
+
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -18,3 +30,6 @@ workflows:
     jobs:
       - welcome/run
       - output_hello_world
+      - load_hello_world:
+        requires: 
+          - output_hello_world
