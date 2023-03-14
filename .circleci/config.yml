@@ -16,7 +16,7 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - attact_workspace:
+      - attach_workspace:
           at: /tmp/dir
       - run: cat /tmp/dir/output.txt
 
